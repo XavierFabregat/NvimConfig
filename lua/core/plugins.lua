@@ -42,12 +42,18 @@ return packer.startup(function(use)
   use 'nvim-tree/nvim-tree.lua'
   use 'nvim-tree/nvim-web-devicons'
   use 'nvim-lualine/lualine.nvim'
-  use 'nvim-treesitter/nvim-treesitter'
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ":TSUpdate",
+  }
+  use "JoosepAlviste/nvim-ts-context-commentstring"
   use {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.0',
         requires = { {'nvim-lua/plenary.nvim'} }
       }
+  use "windwp/nvim-autopairs"
+  use "numToStr/Comment.nvim" -- Easily comment out stuff
 
 
   -- cmp plugins
@@ -58,6 +64,7 @@ return packer.startup(function(use)
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "David-Kunz/cmp-npm" -- npm completions
   use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-nvim-lua"
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
@@ -72,6 +79,12 @@ return packer.startup(function(use)
 
   --utility
   use "wakatime/vim-wakatime" --tracker for my github
+
+  --Git 
+  use "lewis6991/gitsigns.nvim"
+
+  --Terminal
+  use "akinsho/toggleterm.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
