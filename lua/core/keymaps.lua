@@ -18,3 +18,17 @@ vim.opt.expandtab = true
 vim.wo.number = true
 
 vim.keymap.set('n', '<leader>h', ':nohlserach<CR>')
+
+local keymap = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+-- Navigate buffers
+keymap("n", "<S-l>", ":bnext<CR>", opts)
+keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<Space>f", ":lua vim.lsp.buf.format()<CR>", opts)
+
+-- Move text up and down
+keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
+keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
+
+keymap("i", "jk", "<Esc>", opts)

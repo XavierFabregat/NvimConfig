@@ -39,9 +39,10 @@ packer.init {
 return packer.startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'ellisonleao/gruvbox.nvim'
-  use 'nvim-tree/nvim-tree.lua'
-  use 'nvim-tree/nvim-web-devicons'
+  use 'kyazdani42/nvim-tree.lua'
+  use 'kyazdani42/nvim-web-devicons'
   use 'nvim-lualine/lualine.nvim'
+  use 'nvim-lua/plenary.nvim'
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ":TSUpdate",
@@ -54,6 +55,10 @@ return packer.startup(function(use)
       }
   use "windwp/nvim-autopairs"
   use "numToStr/Comment.nvim" -- Easily comment out stuff
+
+  -- Buffers & Tabs
+  use "akinsho/bufferline.nvim"
+  use "moll/vim-bbye"
 
 
   -- cmp plugins
@@ -82,6 +87,9 @@ return packer.startup(function(use)
 
   --Git 
   use "lewis6991/gitsigns.nvim"
+
+  --Co-Pilot
+  use "github/copilot.vim"
 
   --Terminal
   use "akinsho/toggleterm.nvim"
